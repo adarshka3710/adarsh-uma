@@ -1,0 +1,320 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-09-02T16:21:00.000Z",
+  "title": "Design System: Adarsh × Uma",
+  "extensions": {
+    "colorMeta": {
+      "wine-950": {
+        "role": "primary",
+        "displayName": "Midnight Wine 950",
+        "canonical": "#180b11",
+        "tonalRamp": ["#180b11", "#240d16", "#3a1422", "#5e172d", "#91405a", "#b06d82", "#c994a3", "#e9d9d8"]
+      },
+      "wine-900": {
+        "role": "primary",
+        "displayName": "Midnight Wine 900",
+        "canonical": "#240d16",
+        "tonalRamp": ["#12080e", "#240d16", "#3d1524", "#5e172d", "#7a2f48", "#a35d74", "#d4aeb8", "#f5e8d8"]
+      },
+      "wine-700": {
+        "role": "primary",
+        "displayName": "Cellar Wine 700",
+        "canonical": "#5e172d",
+        "tonalRamp": ["#2a0c16", "#3f1020", "#5e172d", "#7a243c", "#91405a", "#b06d82", "#d7a8b4", "#f3e4e7"]
+      },
+      "wine-500": {
+        "role": "primary",
+        "displayName": "Rose Wine 500",
+        "canonical": "#91405a",
+        "tonalRamp": ["#3a1522", "#5e172d", "#763248", "#91405a", "#a85d74", "#c4899a", "#e0c0c9", "#f7ecef"]
+      },
+      "cream": {
+        "role": "neutral",
+        "displayName": "Projection Cream",
+        "canonical": "#f5e8d8",
+        "tonalRamp": ["#8a7460", "#b39a80", "#d4bea4", "#ead7c0", "#f5e8d8", "#faf1e6", "#fff8ed", "#fffdf9"]
+      },
+      "cream-deep": {
+        "role": "neutral",
+        "displayName": "Cream Deep",
+        "canonical": "#ead7c0",
+        "tonalRamp": ["#7a6450", "#a3886e", "#c4a88c", "#ead7c0", "#f2e4d2", "#f7ecdf", "#fbf4ea", "#fffaf3"]
+      },
+      "blush": {
+        "role": "secondary",
+        "displayName": "Blush Dusk",
+        "canonical": "#e6b7ae",
+        "tonalRamp": ["#6e3c38", "#9a5f57", "#c48478", "#d98c78", "#e6b7ae", "#efcdc7", "#f6e2de", "#fbf1ef"]
+      },
+      "peach": {
+        "role": "secondary",
+        "displayName": "Peach Emulsion",
+        "canonical": "#d98c78",
+        "tonalRamp": ["#5c3228", "#8a4f40", "#b36a57", "#d98c78", "#e4a792", "#efc4b5", "#f6ddd4", "#fbf0eb"]
+      },
+      "gold": {
+        "role": "secondary",
+        "displayName": "Aged Champagne",
+        "canonical": "#d7ad69",
+        "tonalRamp": ["#4a3a1c", "#7a5f30", "#a88645", "#d7ad69", "#e2c28b", "#edd6ad", "#f5e8d0", "#fbf4e6"]
+      },
+      "charcoal": {
+        "role": "neutral",
+        "displayName": "Charcoal Gate",
+        "canonical": "#181417",
+        "tonalRamp": ["#0d090b", "#181417", "#2a1b20", "#4a3a41", "#775d65", "#a89298", "#d7c5c6", "#f5e8d8"]
+      },
+      "ink": {
+        "role": "neutral",
+        "displayName": "Ink",
+        "canonical": "#2a1b20",
+        "tonalRamp": ["#180b11", "#2a1b20", "#3c272e", "#59424a", "#775d65", "#9a7781", "#c9afb4", "#e9d9d8"]
+      },
+      "paper": {
+        "role": "neutral",
+        "displayName": "Paper White",
+        "canonical": "#fff8ed",
+        "tonalRamp": ["#b39a80", "#d4bea4", "#ead7c0", "#f5e8d8", "#faf1e6", "#fff8ed", "#fffbf5", "#ffffff"]
+      },
+      "gallery-dusk": {
+        "role": "neutral",
+        "displayName": "Gallery Dusk",
+        "canonical": "#e8c8bf",
+        "tonalRamp": ["#6e4540", "#9a6860", "#c4948a", "#e8c8bf", "#efd6cf", "#f5e4df", "#faf0ed", "#fdf7f5"]
+      },
+      "sticky-butter": {
+        "role": "neutral",
+        "displayName": "Sticky Butter",
+        "canonical": "#fff5dc",
+        "tonalRamp": ["#a3885c", "#c4aa78", "#e0c894", "#fff5dc", "#fff8e6", "#fffaf0", "#fffcf6", "#fffefb"]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "Cinema titles, section vows, movie poster type, finale promises."
+      },
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "Timeline year titles and memory dialog titles."
+      },
+      "title": {
+        "displayName": "Title",
+        "purpose": "Love lines, sticky note titles, future card titles."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Narrative paragraphs and UI chrome reading text."
+      },
+      "label": {
+        "displayName": "Label",
+        "purpose": "Uppercase dates, credits, meta rows, and indexes."
+      },
+      "handwriting": {
+        "displayName": "Handwriting",
+        "purpose": "Marginalia, joke sticky bodies, and signatures only."
+      }
+    },
+    "shadows": [
+      {
+        "name": "photo-lift",
+        "value": "0 22px 44px rgba(72, 26, 41, 0.2)",
+        "purpose": "Polaroid and timeline photo mounts at rest."
+      },
+      {
+        "name": "photo-lift-hover",
+        "value": "0 32px 60px rgba(72, 26, 41, 0.28)",
+        "purpose": "Polaroid hover elevation."
+      },
+      {
+        "name": "paper-stack",
+        "value": "0 24px 50px rgba(71, 42, 13, 0.2)",
+        "purpose": "Sticky-note stacks on the joke board."
+      },
+      {
+        "name": "letter-stack",
+        "value": "0 35px 80px rgba(24, 6, 13, 0.38)",
+        "purpose": "Letter paper on the wine stage."
+      },
+      {
+        "name": "story-cta",
+        "value": "0 14px 30px rgba(0, 0, 0, 0.2)",
+        "purpose": "Hero story button resting lift."
+      },
+      {
+        "name": "cinema-glass",
+        "value": "0 12px 35px rgba(0, 0, 0, 0.25)",
+        "purpose": "Fixed music control and floating action pills."
+      },
+      {
+        "name": "dialog-night",
+        "value": "0 40px 100px rgba(0, 0, 0, 0.4)",
+        "purpose": "Memory dialog over dimmed cinema backdrop."
+      }
+    ],
+    "motion": [
+      {
+        "name": "ease-cinema",
+        "value": "cubic-bezier(0.16, 1, 0.3, 1)",
+        "purpose": "Primary cinematic easing for reveals, dialogs, and envelope entrance."
+      },
+      {
+        "name": "reveal",
+        "value": "900ms var(--ease-cinema)",
+        "purpose": "Scroll reveal: opacity, translateY(2rem), blur(5px) → settled."
+      },
+      {
+        "name": "intro-stagger",
+        "value": "800–1200ms with 250–5200ms delays",
+        "purpose": "Title-card line cascade before envelope appears."
+      },
+      {
+        "name": "heartbeat",
+        "value": "1.8s ease-in-out infinite",
+        "purpose": "Soft pulse on intimate heart marks."
+      },
+      {
+        "name": "reduced-motion",
+        "value": "prefers-reduced-motion: collapse animations/transitions to ~0.01ms and show settled states",
+        "purpose": "Accessibility invariant for the whole experience."
+      }
+    ],
+    "breakpoints": [
+      { "name": "mobile-max", "value": "699px" },
+      { "name": "tablet", "value": "700px" },
+      { "name": "desktop", "value": "1024px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Envelope Button",
+      "kind": "button",
+      "refersTo": "button-envelope",
+      "description": "Single intimate gate on the cinema title card.",
+      "html": "<button class=\"ds-btn-envelope\" type=\"button\"><span class=\"ds-envelope-mark\">✉</span><span>Open your gift</span></button>",
+      "css": ".ds-btn-envelope { display: inline-flex; align-items: center; gap: 0.75rem; min-height: 3.25rem; padding: 0.65rem 1.1rem 0.65rem 0.7rem; border: 1px solid rgba(245, 232, 216, 0.34); border-radius: 99px; background: rgba(245, 232, 216, 0.08); color: var(--cream, #f5e8d8); backdrop-filter: blur(10px); cursor: pointer; transition: transform 300ms cubic-bezier(0.16, 1, 0.3, 1), background 250ms ease; } .ds-btn-envelope:hover { background: rgba(245, 232, 216, 0.14); transform: translateY(-2px); } .ds-btn-envelope:focus-visible { outline: 2px solid var(--gold, #d7ad69); outline-offset: 4px; } .ds-envelope-mark { display: grid; width: 2.25rem; height: 2.25rem; place-items: center; border-radius: 50%; background: var(--cream, #f5e8d8); color: var(--wine-700, #5e172d); }"
+    },
+    {
+      "name": "Story Button",
+      "kind": "button",
+      "refersTo": "button-story",
+      "description": "Cream fold-style CTA that starts the memory scroll.",
+      "html": "<button class=\"ds-btn-story\" type=\"button\">Begin our story →</button>",
+      "css": ".ds-btn-story { display: inline-flex; align-items: center; justify-content: center; gap: 0.8rem; width: 15rem; min-height: 4.8rem; padding: 0.8rem 1rem; border: 0; border-radius: 0.35rem; background: linear-gradient(32deg, transparent 49%, rgba(94, 23, 45, 0.2) 50% 51%, transparent 52%) left / 50% 100% no-repeat, linear-gradient(-32deg, transparent 49%, rgba(94, 23, 45, 0.2) 50% 51%, transparent 52%) right / 50% 100% no-repeat, var(--cream, #f5e8d8); color: var(--wine-900, #240d16); box-shadow: 0 14px 30px rgba(0, 0, 0, 0.2); cursor: pointer; font-family: var(--font-body, \"Hanken Grotesk\", sans-serif); transition: color 300ms ease, transform 300ms ease; } .ds-btn-story:hover { color: var(--wine-700, #5e172d); transform: translateY(-4px) rotate(-0.5deg); } .ds-btn-story:focus-visible { outline: 2px solid var(--gold, #d7ad69); outline-offset: 4px; }"
+    },
+    {
+      "name": "Filter Chip",
+      "kind": "chip",
+      "refersTo": "button-chip",
+      "description": "Wine-outline memory category chip; fills on active/hover.",
+      "html": "<button class=\"ds-chip\" type=\"button\" aria-pressed=\"false\">Quiet nights</button><button class=\"ds-chip ds-chip--active\" type=\"button\" aria-pressed=\"true\">All memories</button>",
+      "css": ".ds-chip { min-height: 2.75rem; padding: 0.55rem 0.9rem; border: 1px solid rgba(94, 23, 45, 0.3); border-radius: 99px; background: transparent; color: var(--wine-700, #5e172d); cursor: pointer; font-size: 0.875rem; transition: 250ms ease; } .ds-chip:hover, .ds-chip--active { background: var(--wine-700, #5e172d); color: var(--cream, #f5e8d8); } .ds-chip:focus-visible { outline: 2px solid var(--gold, #d7ad69); outline-offset: 4px; }"
+    },
+    {
+      "name": "Miss You Button",
+      "kind": "button",
+      "refersTo": "button-miss-you",
+      "description": "Local playful distance response; blush fill on night chapters.",
+      "html": "<button class=\"ds-btn-miss\" type=\"button\">I miss you</button>",
+      "css": ".ds-btn-miss { display: inline-flex; align-items: center; min-height: 3.25rem; padding: 0.7rem 1.3rem; gap: 0.55rem; border: 1px solid var(--blush, #e6b7ae); border-radius: 99px; background: var(--blush, #e6b7ae); color: var(--wine-900, #240d16); cursor: pointer; font-weight: 750; transition: transform 300ms cubic-bezier(0.16, 1, 0.3, 1); } .ds-btn-miss:hover { transform: scale(1.04); } .ds-btn-miss:focus-visible { outline: 2px solid var(--gold, #d7ad69); outline-offset: 4px; }"
+    },
+    {
+      "name": "Polaroid",
+      "kind": "card",
+      "refersTo": "polaroid",
+      "description": "Tactile memory control: paper mount, soft lift, slight rotation.",
+      "html": "<button class=\"ds-polaroid\" type=\"button\"><span class=\"ds-polaroid-image\"></span><span class=\"ds-polaroid-caption\"><strong>First monsoon</strong><small>We got soaked and stayed anyway</small><em>Frame 03</em></span></button>",
+      "css": ".ds-polaroid { display: flex; flex-direction: column; width: 100%; max-width: 18rem; padding: 0.75rem 0.75rem 1.4rem; border: 0; background: linear-gradient(110deg, rgba(75, 47, 31, 0.03), transparent 40%), var(--paper, #fff8ed); box-shadow: 0 22px 44px rgba(72, 26, 41, 0.2); transform: rotate(-2deg); cursor: pointer; text-align: left; transition: transform 500ms cubic-bezier(0.16, 1, 0.3, 1), box-shadow 500ms ease; } .ds-polaroid:hover { transform: rotate(0) translateY(-10px) scale(1.015); box-shadow: 0 32px 60px rgba(72, 26, 41, 0.28); } .ds-polaroid:focus-visible { outline: 2px solid var(--gold, #d7ad69); outline-offset: 4px; } .ds-polaroid-image { display: block; aspect-ratio: 4 / 5; background: var(--wine-700, #5e172d); } .ds-polaroid-caption { display: flex; flex-direction: column; padding: 1rem 0.5rem 0; } .ds-polaroid-caption strong { color: var(--ink, #2a1b20); font-family: Gloock, Georgia, serif; font-size: 1.45rem; font-weight: 400; } .ds-polaroid-caption small { margin-top: 0.3rem; color: #775d65; font-style: italic; } .ds-polaroid-caption em { margin-top: 0.55rem; color: #8b374f; font-size: 0.72rem; font-style: normal; font-weight: 750; letter-spacing: 0.08em; text-transform: uppercase; }"
+    },
+    {
+      "name": "Sticky Note",
+      "kind": "card",
+      "refersTo": "sticky-note",
+      "description": "Rotated joke sheet with tape and handwriting body.",
+      "html": "<article class=\"ds-sticky\"><span class=\"ds-tape\"></span><h3>Private joke #2</h3><p>Still blaming the Wi‑Fi for every silence.</p><span class=\"ds-note-index\">A+U / 2</span></article>",
+      "css": ".ds-sticky { position: relative; min-height: 15rem; padding: 3rem 1.7rem 1.5rem; background: #fff5dc; box-shadow: 0 24px 50px rgba(71, 42, 13, 0.2); transform: rotate(-2deg); } .ds-tape { position: absolute; top: -0.55rem; left: 50%; width: 5rem; height: 1.5rem; background: rgba(94, 23, 45, 0.38); transform: translateX(-50%) rotate(-2deg); } .ds-sticky h3 { margin: 0 0 0.8rem; color: var(--wine-900, #240d16); font-family: Gloock, Georgia, serif; font-size: 1.8rem; font-weight: 400; } .ds-sticky p { margin: 0; color: #513a41; font-family: Kalam, cursive; font-size: 1.12rem; line-height: 1.45; } .ds-note-index { position: absolute; right: 1rem; bottom: 0.8rem; color: #8c6a62; font-size: 0.7rem; font-weight: 800; letter-spacing: 0.14em; }"
+    },
+    {
+      "name": "Letter Paper",
+      "kind": "custom",
+      "refersTo": "letter-paper",
+      "description": "Ruled anniversary letter on wine stage with blush tape.",
+      "html": "<div class=\"ds-letter\"><p class=\"ds-letter-date\">23 September</p><p class=\"ds-letter-body\">Uma — five years in, I am still choosing you.</p><button class=\"ds-letter-replay\" type=\"button\">Replay letter</button></div>",
+      "css": ".ds-letter { position: relative; width: min(100%, 780px); min-height: 24rem; padding: clamp(2rem, 7vw, 5.5rem); background: linear-gradient(rgba(94, 23, 45, 0.065) 1px, transparent 1px), var(--paper, #fff8ed); background-size: 100% 1.85rem; box-shadow: 0 35px 80px rgba(24, 6, 13, 0.38); transform: rotate(-0.7deg); } .ds-letter::before { position: absolute; top: -1rem; left: 11%; width: 6rem; height: 2rem; background: rgba(230, 183, 174, 0.7); content: \"\"; transform: rotate(-3deg); } .ds-letter-date { margin: 0; color: #8b6874; font-size: 0.75rem; font-weight: 750; letter-spacing: 0.18em; text-transform: uppercase; } .ds-letter-body { max-width: 62ch; margin: 2rem 0 0; color: #3c272e; font-family: Gloock, Georgia, serif; font-size: clamp(1.15rem, 2.3vw, 1.45rem); line-height: 1.65; } .ds-letter-replay { margin-top: 2rem; min-height: 2.75rem; padding: 0.5rem 1rem; border: 1px solid var(--wine-700, #5e172d); border-radius: 99px; background: transparent; color: var(--wine-700, #5e172d); cursor: pointer; } .ds-letter-replay:hover { background: var(--wine-700, #5e172d); color: var(--cream, #f5e8d8); } .ds-letter-replay:focus-visible { outline: 2px solid var(--gold, #d7ad69); outline-offset: 4px; }"
+    },
+    {
+      "name": "Music Control",
+      "kind": "nav",
+      "refersTo": "music-control",
+      "description": "Fixed dark-glass audio control; user-initiated only.",
+      "html": "<div class=\"ds-music\"><button type=\"button\"><span class=\"ds-music-icon\">♪</span><span><strong>Our song</strong><small>Tap to play</small></span></button></div>",
+      "css": ".ds-music { display: inline-flex; overflow: hidden; border: 1px solid rgba(245, 232, 216, 0.18); border-radius: 99px; background: rgba(24, 11, 17, 0.92); color: var(--cream, #f5e8d8); box-shadow: 0 12px 35px rgba(0, 0, 0, 0.25); backdrop-filter: blur(12px); } .ds-music > button { display: flex; min-height: 3.4rem; align-items: center; padding: 0.35rem 0.85rem 0.35rem 0.4rem; gap: 0.55rem; border: 0; background: transparent; color: inherit; cursor: pointer; text-align: left; } .ds-music > button:hover { background: rgba(245, 232, 216, 0.06); } .ds-music > button:focus-visible { outline: 2px solid var(--gold, #d7ad69); outline-offset: 4px; } .ds-music-icon { display: grid; width: 2.5rem; height: 2.5rem; place-items: center; border-radius: 50%; background: var(--wine-700, #5e172d); color: var(--blush, #e6b7ae); } .ds-music strong { display: block; font-size: 0.78rem; } .ds-music small { color: #cbb4b8; font-size: 0.65rem; }"
+    },
+    {
+      "name": "Cinema Title Card",
+      "kind": "custom",
+      "refersTo": "button-envelope",
+      "description": "First-viewport night gate: grain, orbits, staggered copy, envelope.",
+      "html": "<section class=\"ds-intro\"><p class=\"ds-intro-line\">Hey Uma…</p><h1 class=\"ds-intro-title\">5 Years</h1><p class=\"ds-intro-names\">Adarsh × Uma</p><button class=\"ds-btn-envelope\" type=\"button\"><span class=\"ds-envelope-mark\">✉</span><span>Open your gift</span></button></section>",
+      "css": ".ds-intro { display: grid; min-height: 24rem; place-items: center; padding: 2rem; background: radial-gradient(circle at 50% 36%, rgba(145, 64, 90, 0.26), transparent 38%), linear-gradient(145deg, #12080e, #2c0f1c 58%, #170910); color: var(--cream, #f5e8d8); text-align: center; } .ds-intro-line { margin: 0.35rem 0; color: #e9d9d8; font-size: clamp(1.05rem, 3vw, 1.35rem); } .ds-intro-title { margin: 2.4rem 0 0; font-family: Gloock, Georgia, serif; font-size: clamp(2.5rem, 9vw, 5.5rem); font-weight: 400; letter-spacing: -0.04em; } .ds-intro-names { margin: 0.5rem 0 2rem; color: var(--gold, #d7ad69); letter-spacing: 0.28em; text-transform: uppercase; } .ds-btn-envelope { display: inline-flex; align-items: center; gap: 0.75rem; min-height: 3.25rem; padding: 0.65rem 1.1rem 0.65rem 0.7rem; border: 1px solid rgba(245, 232, 216, 0.34); border-radius: 99px; background: rgba(245, 232, 216, 0.08); color: var(--cream, #f5e8d8); backdrop-filter: blur(10px); cursor: pointer; } .ds-btn-envelope:hover { background: rgba(245, 232, 216, 0.14); } .ds-btn-envelope:focus-visible { outline: 2px solid var(--gold, #d7ad69); outline-offset: 4px; } .ds-envelope-mark { display: grid; width: 2.25rem; height: 2.25rem; place-items: center; border-radius: 50%; background: var(--cream, #f5e8d8); color: var(--wine-700, #5e172d); }"
+    }
+  ],
+  "narrative": {
+    "northStar": "After-Hours Memory Cinema",
+    "overview": "This system is a private fifth-anniversary gift that behaves like a late-night screening room, not a greeting-card template. Midnight wine fields open the story; cream and paper hold tactile photographs; blush and champagne gold mark affection, cast credits, and still-choosing-you promises. The visitor travels through five film frames of tenderness and chaos before arriving at Adarsh’s closing vow.\n\nDensity is cinematic and sectional: each chapter owns one emotional job, with generous vertical rhythm and few competing surfaces. Atmosphere comes from grain, soft film light, perforations, slight photo rotations, and handwritten asides—not from card grids, pill clusters, or floating promo badges. Motion is deliberate cinema easing, with a full reduced-motion collapse so the story remains readable without animation or sound.\n\nConfirmed visual refusals: generic anniversary card stacks, autoplaying audio, location-permission gimmicks, and template romance chrome that could belong to any couple after the names are removed.",
+    "keyCharacteristics": [
+      "Wine-to-cream cinema contrast with blush dusk and aged-champagne accents",
+      "Display serif for titles; grotesque for UI; handwriting only for marginalia",
+      "Tactile photographs: paper mounts, soft depth, gentle rotation",
+      "Film perforations and grain as recurring atmosphere, not decoration packs",
+      "Mobile-first single-route scroll with one intimate envelope gate"
+    ],
+    "rules": [
+      {
+        "name": "The Cinema Night Rule",
+        "body": "Dark wine grounds the gate, hero, distance, movie, and finale. Cream and paper are for daylight chapters of memory—never invert that rhythm casually.",
+        "section": "colors"
+      },
+      {
+        "name": "The Champagne Spotlight Rule",
+        "body": "Gold is credits and promise metal (≤ small accents per viewport). It is not a large fill color.",
+        "section": "colors"
+      },
+      {
+        "name": "The Marginalia Rule",
+        "body": "Kalam is for scribbles and signatures. Body narrative stays in Hanken; titles stay in Gloock.",
+        "section": "typography"
+      },
+      {
+        "name": "The Brand-In-Type Rule",
+        "body": "Couple names and the five-year promise must read at display scale in cinema moments—never only as nav or eyebrow chrome.",
+        "section": "typography"
+      },
+      {
+        "name": "The One Job Per Frame Rule",
+        "body": "Each section carries one headline, one short note, and one interaction or artifact set—no dashboard strips in the first viewport or chapter headers.",
+        "section": "layout"
+      },
+      {
+        "name": "The Tactile Photo Rule",
+        "body": "Memory images live on paper mounts with slight rotation and soft lift. Do not put memories in rounded media cards or inset side panels.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "Do open with a dark cinema title card, staggered intimacy copy, and a single envelope action.",
+      "Do alternate wine night chapters with cream/paper daylight chapters so the film breathes.",
+      "Do mount photographs on paper with gentle rotation, soft lift, and handwritten marginalia.",
+      "Do keep gold for credits, dates, and promise accents; keep blush for affection signals.",
+      "Do honor prefers-reduced-motion by removing reveals, chat delays, and ornamental loops while leaving content intact.",
+      "Do treat audio as user-initiated only."
+    ],
+    "donts": [
+      "Don't rebuild this as a stack of generic anniversary cards, stat strips, or promo badges over the hero.",
+      "Don't use handwriting as the primary reading face for long letter or body copy.",
+      "Don't fill large regions with gold or peach; they are atmosphere and spotlight, not grounds.",
+      "Don't autoplay music or request location permissions.",
+      "Don't present placeholder memories as factual once real couple media exists—placeholders remain clearly marked until replaced."
+    ]
+  }
+}
