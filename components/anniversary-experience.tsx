@@ -240,7 +240,7 @@ function Timeline() {
             <div className="timeline-photo">
               <Image
                 src={item.image}
-                alt={`Year ${item.year}: ${item.label}`}
+                alt={`Placeholder for year ${item.year} memory`}
                 width={900}
                 height={1100}
                 sizes="(max-width: 700px) 80vw, 36vw"
@@ -317,7 +317,7 @@ function MemoryDialog({
         <div className="dialog-image">
           <Image
             src={memory.image}
-            alt={memory.title}
+            alt={`Placeholder artwork for ${memory.title}`}
             fill
             sizes="(max-width: 800px) 92vw, 50vw"
           />
@@ -351,7 +351,7 @@ function MemoryGallery() {
   return (
     <section className="gallery-section story-section" id="memories">
       <Reveal>
-        <SectionHeading note="The beautiful, blurry, completely irreplaceable evidence.">
+        <SectionHeading note="Irreplaceable evidence.">
           The moments I keep replaying.
         </SectionHeading>
       </Reveal>
@@ -377,7 +377,7 @@ function MemoryGallery() {
             <span className="polaroid-image">
               <Image
                 src={memory.image}
-                alt={memory.title}
+                alt={`Placeholder for ${memory.title}`}
                 fill
                 sizes="(max-width: 640px) 82vw, (max-width: 1024px) 42vw, 28vw"
               />
@@ -470,7 +470,7 @@ function DistanceSection({ onMissYou }: { onMissYou: () => void }) {
     <section className="distance-section story-section" id="distance">
       <div className="distance-stars" aria-hidden />
       <Reveal>
-        <SectionHeading light note="Not a goodbye. Just a very long way to the next hello.">
+        <SectionHeading light note="Not a goodbye. Just a long way to the next hello.">
           Different places.<br />Same heart.
         </SectionHeading>
       </Reveal>
