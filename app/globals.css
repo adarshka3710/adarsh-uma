@@ -122,7 +122,8 @@ input:focus-visible {
     transform 900ms var(--ease-cinema) var(--reveal-delay, 0ms);
 }
 
-.js .reveal.is-visible {
+.js .reveal.is-visible,
+.js .reveal[data-visible="true"] {
   opacity: 1;
   transform: none;
 }
@@ -685,7 +686,8 @@ input:focus-visible {
   transition: filter 1s ease, transform 1.2s var(--ease-cinema);
 }
 
-.polaroid.is-visible .polaroid-image img {
+.polaroid.is-visible .polaroid-image img,
+.polaroid[data-visible="true"] .polaroid-image img {
   filter: none;
   transform: scale(1);
 }
@@ -813,19 +815,33 @@ input:focus-visible {
 /* Facts and notes */
 .facts-section {
   background: var(--cream);
+  padding-bottom: calc(var(--section-space) + 7rem);
+}
+
+.facts-section .section-heading h2 {
+  max-width: min(22ch, 100%);
 }
 
 .facts-list {
   display: grid;
-  width: min(100%, 1000px);
+  grid-template-columns: 1fr;
+  width: min(100%, 720px);
   margin: auto;
-  gap: 1rem;
+  gap: 0;
+  align-items: start;
 }
 
 .fact-card {
   position: relative;
-  padding: clamp(1.5rem, 4vw, 3rem);
+  display: block;
+  width: 100%;
+  height: auto;
+  min-height: 0;
+  padding: 1.5rem 0 1.75rem;
   border-top: 1px solid rgba(94, 23, 45, 0.28);
+  align-self: start;
+  opacity: 1;
+  transform: none;
 }
 
 .fact-count {
@@ -838,17 +854,19 @@ input:focus-visible {
 }
 
 .fact-card h3 {
-  max-width: 19ch;
+  max-width: min(22ch, 100%);
   margin: 0;
   color: var(--wine-900);
   font-family: var(--font-display), Georgia, serif;
   font-size: clamp(1.8rem, 4vw, 3rem);
   font-weight: 400;
   line-height: 1.1;
+  overflow-wrap: break-word;
 }
 
 .fact-choices {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   gap: 0.7rem;
   margin-top: 1.5rem;
@@ -876,6 +894,7 @@ input:focus-visible {
 
 .fact-result {
   display: grid;
+  width: 100%;
   max-width: 38rem;
   margin-top: 1.5rem;
   gap: 0.8rem;
@@ -884,7 +903,7 @@ input:focus-visible {
 
 .fact-result > div {
   display: grid;
-  grid-template-columns: 4.2rem 1fr 2.8rem;
+  grid-template-columns: 4.5rem minmax(0, 1fr) 3.25rem;
   align-items: center;
   gap: 0.7rem;
 }
@@ -896,17 +915,27 @@ input:focus-visible {
   background: #dbc6bb;
 }
 
-.fact-track i {
+.fact-track > span {
   display: block;
   height: 100%;
+  width: var(--pct, 0%);
   border-radius: inherit;
   background: var(--wine-700);
-  animation: barIn 900ms var(--ease-cinema) both;
+  transform: scaleX(0);
+  transform-origin: left center;
+  animation: barIn 900ms var(--ease-cinema) forwards;
 }
 
 .fact-result > p {
+  margin: 0.35rem 0 0;
   color: #5f424b;
   font-size: 0.95rem;
+  line-height: 1.45;
+  overflow-wrap: break-word;
+}
+
+.fact-result > p strong {
+  color: var(--wine-700);
 }
 
 .jokes-section {
@@ -1787,8 +1816,12 @@ input:focus-visible {
   .memory-grid { grid-template-columns: repeat(3, 1fr); gap: 3rem 2rem; }
   .polaroid:nth-child(2) { margin-top: 4rem; }
   .polaroid:nth-child(5) { margin-top: -2rem; }
-  .facts-list { grid-template-columns: repeat(2, 1fr); }
-  .fact-card { min-height: 25rem; }
+  .facts-list {
+    width: min(100%, 720px);
+  }
+  .fact-card {
+    padding: 1.75rem 0 2rem;
+  }
   .joke-board { grid-template-columns: repeat(4, 1fr); }
   .sticky-note:nth-child(even) { margin-top: 3rem; }
   .future-track { grid-template-columns: repeat(3, 1fr); }
@@ -2062,7 +2095,7 @@ body,
   }
 
   .fact-card {
-    padding: 1.25rem 0;
+    padding: 1.35rem 0 1.75rem;
   }
 
   .fact-card h3 {
@@ -2070,8 +2103,16 @@ body,
     font-size: clamp(1.4rem, 6.8vw, 2rem);
   }
 
+  .fact-choices {
+    padding-right: 3rem;
+  }
+
+  .fact-result {
+    max-width: 100%;
+  }
+
   .fact-result > div {
-    grid-template-columns: 3.6rem 1fr 2.4rem;
+    grid-template-columns: 3.8rem minmax(0, 1fr) 2.85rem;
     gap: 0.45rem;
   }
 
@@ -2329,7 +2370,10 @@ body,
 @keyframes fadeIn { from { opacity: 0; } }
 @keyframes dialogIn { from { opacity: 0; transform: translateY(2rem) scale(0.98); } }
 @keyframes resultShake { 0% { transform: translateX(-5px); } 25% { transform: translateX(5px); } 50% { transform: translateX(-2px); } 100% { transform: none; } }
-@keyframes barIn { from { width: 0; } }
+@keyframes barIn {
+  from { transform: scaleX(0); }
+  to { transform: scaleX(1); }
+}
 @keyframes connectionPulse { 0%, 100% { left: 0; opacity: 0; } 15%, 85% { opacity: 1; } 50% { left: calc(100% - 10px); } }
 @keyframes connectionPulseVertical { 0%, 100% { top: 0; opacity: 0; } 15%, 85% { opacity: 1; } 50% { top: calc(100% - 10px); } }
 @keyframes chatIn { from { opacity: 0; transform: translateY(8px) scale(0.97); } to { opacity: 1; transform: none; } }
