@@ -240,7 +240,7 @@ function Timeline() {
             <div className="timeline-photo">
               <Image
                 src={item.image}
-                alt={`Placeholder for year ${item.year} memory`}
+                alt={`Year ${item.year}: ${item.label}`}
                 width={900}
                 height={1100}
                 sizes="(max-width: 700px) 80vw, 36vw"
@@ -317,7 +317,7 @@ function MemoryDialog({
         <div className="dialog-image">
           <Image
             src={memory.image}
-            alt={`Placeholder artwork for ${memory.title}`}
+            alt={memory.title}
             fill
             sizes="(max-width: 800px) 92vw, 50vw"
           />
@@ -377,7 +377,7 @@ function MemoryGallery() {
             <span className="polaroid-image">
               <Image
                 src={memory.image}
-                alt={`Placeholder for ${memory.title}`}
+                alt={memory.title}
                 fill
                 sizes="(max-width: 640px) 82vw, (max-width: 1024px) 42vw, 28vw"
               />
