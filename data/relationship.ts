@@ -40,7 +40,7 @@ export const relationship = {
       label: "Where it all started",
       date: "23 September 2021",
       story:
-        "[Replace this] The beginning was awkward, exciting, and somehow already felt important.",
+        "The beginning was awkward, exciting, and somehow already felt important.",
       funnyCaption: "Two people pretending to be completely normal about each other.",
       emotionalMemory:
         "I didn't know this would become my favorite story. I only knew I wanted another day with you.",
@@ -51,7 +51,7 @@ export const relationship = {
       label: "We were getting serious…",
       date: "September 2022",
       story:
-        "[Replace this] We learned each other's moods, silences, snack orders, and suspiciously specific ways of saying “nothing.”",
+        "We learned each other's moods, silences, snack orders, and suspiciously specific ways of saying “nothing.”",
       funnyCaption: "Still flirting. Now with scheduled arguments.",
       emotionalMemory:
         "Somewhere in the ordinary days, you stopped feeling like a chapter and started feeling like home.",
@@ -62,7 +62,7 @@ export const relationship = {
       label: "Definitely stuck with each other",
       date: "September 2023",
       story:
-        "[Replace this] By now we had traditions, inside jokes, legendary fights, and stories nobody else could translate.",
+        "By now we had traditions, inside jokes, legendary fights, and stories nobody else could translate.",
       funnyCaption: "No refunds. Terms and conditions were never provided.",
       emotionalMemory:
         "You knew versions of me that were difficult to love, and you stayed long enough to know the softer ones too.",
@@ -73,7 +73,7 @@ export const relationship = {
       label: "Distance entered the chat",
       date: "September 2024",
       story:
-        "[Replace this] Calls replaced walks. Screenshots replaced photographs. Missing you became part of the routine.",
+        "Calls replaced walks. Screenshots replaced photographs. Missing you became part of the routine.",
       funnyCaption: "Romance, now available in unstable network quality.",
       emotionalMemory:
         "Distance changed the shape of us, but never the direction.",
@@ -84,7 +84,7 @@ export const relationship = {
       label: "Still you. Still us.",
       date: "23 September 2026",
       story:
-        "[Replace this] Five years later, after every laugh, pause, fight, call, and comeback—here we are.",
+        "Five years later, after every laugh, pause, fight, call, and comeback—here we are.",
       funnyCaption: "Plot twist: we still like each other.",
       emotionalMemory:
         "If I had to choose again, knowing every difficult part, I would still choose you.",
@@ -105,7 +105,7 @@ export const relationship = {
       verdict: "Adarsh, because peace is a beautiful thing.",
     },
     {
-      question: "Who says “I'm fine” while clearly not fine?",
+      question: "Who says \"I'm fine\" while clearly not fine?",
       adarsh: 21,
       uma: 79,
       verdict: "The data was collected during a very brave interview.",
@@ -120,22 +120,22 @@ export const relationship = {
   insideJokes: [
     {
       title: "That one conversation…",
-      text: "[Replace this with the sentence that makes no sense to anyone else.]",
+      text: "We still quote it with a straight face, and somehow it still makes sense only to us.",
       tape: "wine",
     },
     {
       title: "The legendary fight",
-      text: "[Replace this with what the fight was supposedly about. Emphasis on supposedly.]",
+      text: "Nobody remembers how it started. Everyone remembers who made the first joke afterward.",
       tape: "gold",
     },
     {
       title: "Our accidental nickname",
-      text: "[Replace this with the nickname that should probably never be explained publicly.]",
+      text: "It was never supposed to stick. Five years later, it still answers to us.",
       tape: "blush",
     },
     {
       title: "The joke that refuses to die",
-      text: "[Replace this with the joke you have repeated approximately 4,000 times.]",
+      text: "We've told it approximately 4,000 times. It still gets a reaction. Science cannot explain this.",
       tape: "peach",
     },
   ],

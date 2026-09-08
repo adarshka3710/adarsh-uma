@@ -8,7 +8,7 @@ import {
   useRef,
   useState,
 } from "react";
-import { memories, memoryCategories, type Memory } from "@/data/memories";
+import { memories, type Memory } from "@/data/memories";
 import { relationship } from "@/data/relationship";
 
 type IconName =
@@ -240,7 +240,7 @@ function Timeline() {
             <div className="timeline-photo">
               <Image
                 src={item.image}
-                alt={`Placeholder for year ${item.year} memory`}
+                alt={`Year ${item.year} memory`}
                 width={900}
                 height={1100}
                 sizes="(max-width: 700px) 80vw, 36vw"
@@ -317,7 +317,7 @@ function MemoryDialog({
         <div className="dialog-image">
           <Image
             src={memory.image}
-            alt={`Placeholder artwork for ${memory.title}`}
+            alt={memory.title}
             fill
             sizes="(max-width: 800px) 92vw, 50vw"
           />
@@ -336,7 +336,7 @@ function MemoryDialog({
           {memory.emotionalMessage && <blockquote>{memory.emotionalMessage}</blockquote>}
           {memory.funnyCaption && <span className="scribble">{memory.funnyCaption}</span>}
           {memory.placeholder && (
-            <p className="replace-note">Placeholder memory — replace this in data/memories.ts.</p>
+            <p className="replace-note">Photo coming soon.</p>
           )}
         </div>
       </div>
@@ -345,9 +345,7 @@ function MemoryDialog({
 }
 
 function MemoryGallery() {
-  const [category, setCategory] = useState<(typeof memoryCategories)[number]["id"]>("all");
   const [selected, setSelected] = useState<Memory | null>(null);
-  const filtered = category === "all" ? memories : memories.filter((memory) => memory.category === category);
   return (
     <section className="gallery-section story-section" id="memories">
       <Reveal>
@@ -355,20 +353,8 @@ function MemoryGallery() {
           The moments I keep replaying.
         </SectionHeading>
       </Reveal>
-      <div className="category-row" aria-label="Filter memories">
-        {memoryCategories.map((item) => (
-          <button
-            key={item.id}
-            className={category === item.id ? "active" : ""}
-            onClick={() => setCategory(item.id)}
-            aria-pressed={category === item.id}
-          >
-            <span>{item.mark}</span> {item.label}
-          </button>
-        ))}
-      </div>
       <div className="memory-grid">
-        {filtered.map((memory, index) => (
+        {memories.map((memory, index) => (
           <button
             className={`polaroid reveal polaroid--${(index % 3) + 1}`}
             key={memory.id}
@@ -377,7 +363,7 @@ function MemoryGallery() {
             <span className="polaroid-image">
               <Image
                 src={memory.image}
-                alt={`Placeholder for ${memory.title}`}
+                alt={memory.title}
                 fill
                 sizes="(max-width: 640px) 82vw, (max-width: 1024px) 42vw, 28vw"
               />
@@ -385,7 +371,7 @@ function MemoryGallery() {
             <span className="polaroid-caption">
               <strong>{memory.title}</strong>
               <small>{memory.funnyCaption}</small>
-              {memory.placeholder && <em>Placeholder — add your photo</em>}
+              {memory.placeholder && <em>Photo coming soon</em>}
             </span>
           </button>
         ))}
@@ -398,7 +384,7 @@ function MemoryGallery() {
 function FunnyFacts() {
   const [answers, setAnswers] = useState<Record<number, "Adarsh" | "Uma">>({});
   return (
-    <section className="facts-section story-section">
+    <section className="facts-section story-section" id="facts">
       <Reveal>
         <SectionHeading note="Five years of peer-reviewed nonsense.">
           Apparently, love means annoying each other.
@@ -406,32 +392,48 @@ function FunnyFacts() {
       </Reveal>
       <div className="facts-list">
         {relationship.facts.map((fact, index) => {
-          const answered = Boolean(answers[index]);
-          const winner = fact.adarsh > fact.uma ? "Adarsh" : "Uma";
+          const guess = answers[index];
+          const answered = Boolean(guess);
+          const tied = fact.adarsh === fact.uma;
+          const winner = tied ? "Tie" : fact.adarsh > fact.uma ? "Adarsh" : "Uma";
           return (
-            <article className={`fact-card reveal ${answered ? "fact-card--answered" : ""}`} key={fact.question}>
+            <article
+              className={`fact-card${answered ? " fact-card--answered" : ""}`}
+              key={fact.question}
+            >
+              <p className="fact-count">Case {String(index + 1).padStart(2, "0")}</p>
               <h3>{fact.question}</h3>
               {!answered ? (
                 <div className="fact-choices">
-                  <button onClick={() => setAnswers((value) => ({ ...value, [index]: "Adarsh" }))}>Adarsh</button>
+                  <button type="button" onClick={() => setAnswers((value) => ({ ...value, [index]: "Adarsh" }))}>
+                    Adarsh
+                  </button>
                   <span>or</span>
-                  <button onClick={() => setAnswers((value) => ({ ...value, [index]: "Uma" }))}>Uma</button>
+                  <button type="button" onClick={() => setAnswers((value) => ({ ...value, [index]: "Uma" }))}>
+                    Uma
+                  </button>
                 </div>
               ) : (
                 <div className="fact-result" aria-live="polite">
                   <div>
                     <span>Adarsh</span>
-                    <div className="fact-track"><i style={{ width: `${fact.adarsh}%` }} /></div>
+                    <div className="fact-track" aria-hidden>
+                      <span style={{ "--pct": `${fact.adarsh}%` } as React.CSSProperties} />
+                    </div>
                     <b>{fact.adarsh}%</b>
                   </div>
                   <div>
                     <span>Uma</span>
-                    <div className="fact-track"><i style={{ width: `${fact.uma}%` }} /></div>
+                    <div className="fact-track" aria-hidden>
+                      <span style={{ "--pct": `${fact.uma}%` } as React.CSSProperties} />
+                    </div>
                     <b>{fact.uma}%</b>
                   </div>
                   <p>
-                    Your guess: {answers[index]}. Official winner: <strong>{winner}</strong>.
-                    <br />{fact.verdict}
+                    Your guess: <strong>{guess}</strong>. Official result: <strong>{winner}</strong>
+                    {guess === winner ? " — you knew." : tied ? "." : " — the evidence disagrees."}
+                    <br />
+                    {fact.verdict}
                   </p>
                 </div>
               )}
@@ -827,8 +829,13 @@ export default function AnniversaryExperience() {
       document.documentElement.dataset.previewSection = previewSection;
     }
     const observer = new IntersectionObserver(
-      (entries) => entries.forEach((entry) => entry.isIntersecting && entry.target.classList.add("is-visible")),
-      { threshold: 0.12, rootMargin: "0px 0px -6% 0px" },
+      (entries) =>
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+          entry.target.classList.add("is-visible");
+          entry.target.setAttribute("data-visible", "true");
+        }),
+      { threshold: 0.05, rootMargin: "0px 0px -4% 0px" },
     );
     document.querySelectorAll(".reveal").forEach((node) => observer.observe(node));
     return () => observer.disconnect();
