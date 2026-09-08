@@ -44,7 +44,7 @@ export const relationship = {
       funnyCaption: "Two people pretending to be completely normal about each other.",
       emotionalMemory:
         "I didn't know this would become my favorite story. I only knew I wanted another day with you.",
-      image: "/memories/01_1.jpg",
+      image: "/memories/memory-01.svg",
     },
     {
       year: 2,
@@ -55,7 +55,7 @@ export const relationship = {
       funnyCaption: "Still flirting. Now with scheduled arguments.",
       emotionalMemory:
         "Somewhere in the ordinary days, you stopped feeling like a chapter and started feeling like home.",
-      image: "/memories/05_1.jpg",
+      image: "/memories/memory-02.svg",
     },
     {
       year: 3,
@@ -66,7 +66,7 @@ export const relationship = {
       funnyCaption: "No refunds. Terms and conditions were never provided.",
       emotionalMemory:
         "You knew versions of me that were difficult to love, and you stayed long enough to know the softer ones too.",
-      image: "/memories/10_1.jpg",
+      image: "/memories/memory-03.svg",
     },
     {
       year: 4,
@@ -77,7 +77,7 @@ export const relationship = {
       funnyCaption: "Romance, now available in unstable network quality.",
       emotionalMemory:
         "Distance changed the shape of us, but never the direction.",
-      image: "/memories/20_1.jpg",
+      image: "/memories/memory-04.svg",
     },
     {
       year: 5,
@@ -88,7 +88,7 @@ export const relationship = {
       funnyCaption: "Plot twist: we still like each other.",
       emotionalMemory:
         "If I had to choose again, knowing every difficult part, I would still choose you.",
-      image: "/memories/30_1.jpg",
+      image: "/memories/memory-05.svg",
     },
   ] satisfies TimelineYear[],
   facts: [
