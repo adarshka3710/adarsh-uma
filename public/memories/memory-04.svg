@@ -1,5 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 1100" role="img" aria-labelledby="title">
-  <title id="title">Photo placeholder four</title><defs><linearGradient id="g" x1="0" y1="1" x2="1"><stop stop-color="#32131f"/><stop offset=".5" stop-color="#7e2e49"/><stop offset="1" stop-color="#e7b0a7"/></linearGradient></defs>
-  <rect width="900" height="1100" fill="url(#g)"/><path d="M120 100h660v770H120z" fill="#f6eadc" opacity=".12" transform="rotate(-5 450 485)"/><path d="M190 180h540v610H190z" fill="#191217" opacity=".35" transform="rotate(4 460 485)"/><path d="m320 620 120-170 75 100 65-85 130 180" fill="none" stroke="#f5e8d8" stroke-width="8" opacity=".55"/>
-  <text x="55" y="1010" fill="#fff7ec" font-family="Arial,sans-serif" font-size="28" letter-spacing="5">REPLACE WITH YOUR PHOTO</text>
-</svg>
