@@ -351,7 +351,7 @@ function MemoryGallery() {
   return (
     <section className="gallery-section story-section" id="memories">
       <Reveal>
-        <SectionHeading note="The beautiful, blurry, completely irreplaceable evidence.">
+        <SectionHeading note="Irreplaceable evidence.">
           The moments I keep replaying.
         </SectionHeading>
       </Reveal>
@@ -470,7 +470,7 @@ function DistanceSection({ onMissYou }: { onMissYou: () => void }) {
     <section className="distance-section story-section" id="distance">
       <div className="distance-stars" aria-hidden />
       <Reveal>
-        <SectionHeading light note="Not a goodbye. Just a very long way to the next hello.">
+        <SectionHeading light note="Not a goodbye. Just a long way to the next hello.">
           Different places.<br />Same heart.
         </SectionHeading>
       </Reveal>
