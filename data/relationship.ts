@@ -11,6 +11,7 @@ export const names = {
   her: "Moos",
   herSurname: "Moose",
 
+  
 } as const;
 
 export type PersonName = (typeof names)["him"] | (typeof names)["her"];
