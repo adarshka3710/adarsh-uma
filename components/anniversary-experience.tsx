@@ -318,7 +318,8 @@ function MemoryDialog({
           <Image
             src={memory.image}
             alt={memory.title}
-            fill
+            width={1200}
+            height={1600}
             sizes="(max-width: 800px) 92vw, 50vw"
           />
         </div>
@@ -364,7 +365,8 @@ function MemoryGallery() {
               <Image
                 src={memory.image}
                 alt={memory.title}
-                fill
+                width={1200}
+                height={1600}
                 sizes="(max-width: 640px) 82vw, (max-width: 1024px) 42vw, 28vw"
               />
             </span>
@@ -676,7 +678,14 @@ function Finale({ onHeart }: { onHeart: () => void }) {
     <section className="finale story-section">
       <div className="finale-film" aria-hidden>
         {memories.slice(0, 5).map((memory) => (
-          <Image key={memory.id} src={memory.image} alt="" width={180} height={220} />
+          <Image
+            key={memory.id}
+            src={memory.image}
+            alt=""
+            width={180}
+            height={220}
+            style={{ objectFit: "cover" }}
+          />
         ))}
       </div>
       <div className="finale-copy reveal">
