@@ -8,7 +8,9 @@
 /** Change these two names and the whole site updates. */
 export const names = {
   him: "Adarsh",
-  her: "Moose",
+  her: "Moos",
+  herSurname: "Moose",
+
 } as const;
 
 export type PersonName = (typeof names)["him"] | (typeof names)["her"];
@@ -32,7 +34,7 @@ export const site = {
 export const copy = {
   intro: {
     lines: [
-      `Hey ${names.her}…`,
+      `${names.herSurname}…`,
       "I made something for you.",
       "Something I couldn't put inside a box.",
       "So I put it here instead.",
@@ -54,15 +56,6 @@ export const copy = {
     title: "The moments I keep replaying.",
     note: "Irreplaceable evidence.",
     photoSoon: "Photo coming soon.",
-  },
-  facts: {
-    title: "Apparently, love means annoying each other.",
-    note: "Five years of peer-reviewed nonsense.",
-    or: "or",
-    knew: " — you knew.",
-    disagree: " — the evidence disagrees.",
-    guessPrefix: "Your guess:",
-    resultPrefix: "Official result:",
   },
   distance: {
     titleLines: ["Different places.", "Same heart."],
@@ -167,13 +160,6 @@ export type TimelineYear = {
   image: string;
 };
 
-export type CoupleFact = {
-  question: string;
-  him: number;
-  her: number;
-  verdict: string;
-};
-
 export const relationship = {
   names: {
     boyfriend: names.him,
@@ -250,26 +236,6 @@ export const relationship = {
       image: "/memories/19_1.jpg",
     },
   ] satisfies TimelineYear[],
-  facts: [
-    {
-      question: "Who apologizes first?",
-      him: 68,
-      her: 32,
-      verdict: `${names.him}, because peace is a beautiful thing.`,
-    },
-    {
-      question: 'Who says "I\'m fine" while clearly not fine?',
-      him: 21,
-      her: 79,
-      verdict: "The data was collected during a very brave interview.",
-    },
-    {
-      question: "Who is secretly more obsessed?",
-      him: 52,
-      her: 48,
-      verdict: "Too close to call. Both suspects remain under observation.",
-    },
-  ] satisfies CoupleFact[],
   chat: [
     { sender: names.him, text: "Did you eat?" },
     { sender: names.her, text: "Yes." },
@@ -292,7 +258,7 @@ export const relationship = {
     "I love that I still discover new reasons to choose you.",
   ],
   letter: [
-    `Dear ${names.her},`,
+    `${names.herSurname},`,
     "Five years.",
     "Honestly, I don't know how we got here so quickly.",
     "We've laughed. We've fought. We've annoyed each other. We've missed each other. We've forgiven each other. We've grown together.",
