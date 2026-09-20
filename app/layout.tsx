@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Gloock, Hanken_Grotesk, Kalam } from "next/font/google";
+import { names, site } from "@/data/relationship";
 import "./globals.css";
 
 const display = Gloock({
@@ -23,22 +24,21 @@ export const metadata: Metadata = {
   metadataBase: new URL(
     process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000",
   ),
-  title: "5 Years of Adarsh & Uma",
-  description:
-    "Five years of memories, laughter, distance, and one love—made by Adarsh for Uma.",
-  applicationName: "Adarsh × Uma",
-  keywords: ["Adarsh", "Uma", "anniversary", "five years", "love story"],
+  title: site.title,
+  description: site.description,
+  applicationName: site.coupleLabel,
+  keywords: [names.him, names.her, "anniversary", "five years", "love story"],
   openGraph: {
-    title: "5 Years of Us — Adarsh × Uma",
-    description: "A little corner of the internet where our five years live.",
+    title: `${site.shortTitle} — ${site.coupleLabel}`,
+    description: site.ogDescription,
     type: "website",
     locale: "en_IN",
-    siteName: "Adarsh × Uma",
+    siteName: site.coupleLabel,
   },
   twitter: {
     card: "summary_large_image",
-    title: "5 Years of Us — Adarsh × Uma",
-    description: "23 September. Five years down, forever to go.",
+    title: `${site.shortTitle} — ${site.coupleLabel}`,
+    description: site.twitterDescription,
   },
 };
 
@@ -60,8 +60,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           hidden
           data-design-contract="anniversary-five-frames"
           dangerouslySetInnerHTML={{
-            __html:
-              "THESIS: A five-frame after-hours memory cinema, refusing the generic anniversary card stack. OWN-WORLD: Midnight wine, blush dusk, aged champagne, film perforations, tactile photographs, and handwritten marginalia. STORY: Uma opens a private gift, travels through five years of tenderness and chaos, and reaches Adarsh's still-choosing-you promise. FIRST VIEWPORT: A dark cinema title card with staggered copy, one intimate envelope action, and film-light atmosphere. FORM: Approved memory-cinema direction, seed key anniversary-five-frames. FINISH: unreviewed and undocumented is unfinished; this build ends with the finish review, the verdict, and DESIGN.md",
+            __html: `THESIS: A five-frame after-hours memory cinema, refusing the generic anniversary card stack. OWN-WORLD: Midnight wine, blush dusk, aged champagne, film perforations, tactile photographs, and handwritten marginalia. STORY: ${names.her} opens a private gift, travels through five years of tenderness and chaos, and reaches ${names.him}'s still-choosing-you promise. FIRST VIEWPORT: A dark cinema title card with staggered copy, one intimate envelope action, and film-light atmosphere. FORM: Approved memory-cinema direction, seed key anniversary-five-frames. FINISH: unreviewed and undocumented is unfinished; this build ends with the finish review, the verdict, and DESIGN.md`,
           }}
         />
         {children}

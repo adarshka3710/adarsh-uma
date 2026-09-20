@@ -1,3 +1,162 @@
+/**
+ * ─────────────────────────────────────────────────────────────
+ *  ALL SITE TEXT LIVES HERE
+ *  Change names, dates, and copy in this file only.
+ * ─────────────────────────────────────────────────────────────
+ */
+
+/** Change these two names and the whole site updates. */
+export const names = {
+  him: "Adarsh",
+  her: "Moose",
+} as const;
+
+export type PersonName = (typeof names)["him"] | (typeof names)["her"];
+
+export const site = {
+  years: 5,
+  displayDate: "23 September",
+  heroDate: "23 · 09 · 2026",
+  ogDate: "23 · SEPTEMBER · 2026",
+  startDate: "2021-09-23",
+  coupleLabel: `${names.him} × ${names.her}`,
+  title: `5 Years of ${names.him} & ${names.her}`,
+  shortTitle: "5 Years of Us",
+  description: `Five years of memories, laughter, distance, and one love—made by ${names.him} for ${names.her}.`,
+  ogDescription: "A little corner of the internet where our five years live.",
+  twitterDescription: "23 September. Five years down, forever to go.",
+  iconInitials: `${names.him[0]}×${names.her[0]}`,
+} as const;
+
+/** Section headings, buttons, and UI strings. */
+export const copy = {
+  intro: {
+    lines: [
+      `Hey ${names.her}…`,
+      "I made something for you.",
+      "Something I couldn't put inside a box.",
+      "So I put it here instead.",
+    ],
+    title: "5 Years of Us",
+    openLetter: "Open your letter",
+    skip: "Skip intro",
+  },
+  hero: {
+    lines: ["5 Years.", "Countless Memories.", "One Love."],
+    note: ["Somehow, five years passed…", "and I still choose you."],
+    cta: "Open our story",
+  },
+  timeline: {
+    title: "Where time learned our names.",
+    note: "Five frames. One story that kept moving.",
+  },
+  gallery: {
+    title: "The moments I keep replaying.",
+    note: "Irreplaceable evidence.",
+    photoSoon: "Photo coming soon.",
+  },
+  facts: {
+    title: "Apparently, love means annoying each other.",
+    note: "Five years of peer-reviewed nonsense.",
+    or: "or",
+    knew: " — you knew.",
+    disagree: " — the evidence disagrees.",
+    guessPrefix: "Your guess:",
+    resultPrefix: "Official result:",
+  },
+  distance: {
+    titleLines: ["Different places.", "Same heart."],
+    note: "Not a goodbye. Just a long way to the next hug.",
+    lead: "Being far away from you isn't easy.",
+    misses: [
+      "We miss birthdays.",
+      "We miss random hugs.",
+      "We miss sitting next to each other.",
+      "We miss doing absolutely nothing together.",
+    ],
+    quote: "But we still find ways to be part of each other's ordinary days.",
+    chatStatus: "one call away",
+    typing: `${names.her} is typing…`,
+    punchline: "Five years later… still asking.",
+    missYouButton: "Miss you",
+  },
+  love: {
+    title: "Five years later, here's what I still love.",
+    note: "A very incomplete list, in no particular order.",
+  },
+  letter: {
+    title: `${names.her}, this one is for you.`,
+    readAll: "Read it all now",
+  },
+  numbers: {
+    title: "Our five years in numbers.",
+    note: "The only math I have ever enjoyed.",
+    stillCounting: "Still counting.",
+    items: [
+      { kind: "count" as const, value: 5, suffix: "", label: "years together" },
+      { kind: "count" as const, value: 60, suffix: "", label: "months of us" },
+      { kind: "count" as const, value: 1826, suffix: "+", label: "days, give or take a leap year" },
+      { kind: "text" as const, value: "∞", label: "memories" },
+      { kind: "text" as const, value: "too many", label: "arguments" },
+      { kind: "text" as const, value: "countless", label: "Umma😘" },
+    ],
+  },
+  movie: {
+    titleLines: ["The Story", "of Us"],
+    genres: "Romance · Comedy · Drama · Chaos",
+    himRole: "Professional Annoyer",
+    herRole: "Professional Heart Stealer",
+    runtime: "Runtime: 5 years… and still ongoing.",
+  },
+  future: {
+    title: "To be continued…",
+    note: "The best part is how much we haven't seen yet.",
+    promise: [
+      "We already have five years of memories.",
+      "Let's make the next five even better.",
+    ],
+  },
+  finale: {
+    countdown: [
+      "5 years…",
+      "60 months…",
+      "countless calls…",
+      "too many fights…",
+      "way too many laughs…",
+      "and one person…",
+    ],
+    you: "you.",
+    greeting: `Hey ${names.her}…`,
+    headline: "Happy 5th Anniversary.",
+    body: [
+      "I couldn't wrap this. I couldn't put it in a box.",
+      "So I put five years of us into this.",
+    ],
+    quote:
+      "Thank you for being my favorite person, my favorite problem, my favorite notification, and my favorite part of every day.",
+    toast: "Here's to everything we've been, everything we are, and everything we're going to become.",
+    closingLines: ["5 years down.", "Forever to go."],
+    signature: `— ${names.him}`,
+    oneLastThing: "One last thing",
+  },
+  surprise: {
+    finalLine: "Still choosing you.",
+    finalStrong: "Every single time.",
+  },
+  music: {
+    play: "Play our song",
+    pause: "Pause our song",
+    playing: "Playing softly…",
+    missing: "Add /public/audio/our-song.mp3",
+    mute: "Mute music",
+    unmute: "Unmute music",
+  },
+  actions: {
+    oneMoreMemory: "One more memory",
+    secret: "A tiny secret",
+  },
+} as const;
+
 export type TimelineYear = {
   year: number;
   label: string;
@@ -10,25 +169,25 @@ export type TimelineYear = {
 
 export type CoupleFact = {
   question: string;
-  adarsh: number;
-  uma: number;
+  him: number;
+  her: number;
   verdict: string;
 };
 
 export const relationship = {
   names: {
-    boyfriend: "Adarsh",
-    girlfriend: "Uma",
+    boyfriend: names.him,
+    girlfriend: names.her,
   },
   anniversary: {
-    displayDate: "23 September",
-    startDate: "2021-09-23",
-    years: 5,
+    displayDate: site.displayDate,
+    startDate: site.startDate,
+    years: site.years,
   },
   distance: {
-    kilometers: 847,
-    adarshPlace: "Adarsh's city",
-    umaPlace: "Uma's city",
+    kilometers: 8778,
+    himPlace: `${names.him}'s city`,
+    herPlace: `${names.her}'s city`,
   },
   audio: {
     src: "/audio/our-song.mp3",
@@ -93,58 +252,30 @@ export const relationship = {
   ] satisfies TimelineYear[],
   facts: [
     {
-      question: "Who is more dramatic?",
-      adarsh: 37,
-      uma: 63,
-      verdict: "Scientific research confirms Uma wins. Obviously.",
-    },
-    {
       question: "Who apologizes first?",
-      adarsh: 68,
-      uma: 32,
-      verdict: "Adarsh, because peace is a beautiful thing.",
+      him: 68,
+      her: 32,
+      verdict: `${names.him}, because peace is a beautiful thing.`,
     },
     {
-      question: "Who says \"I'm fine\" while clearly not fine?",
-      adarsh: 21,
-      uma: 79,
+      question: 'Who says "I\'m fine" while clearly not fine?',
+      him: 21,
+      her: 79,
       verdict: "The data was collected during a very brave interview.",
     },
     {
       question: "Who is secretly more obsessed?",
-      adarsh: 52,
-      uma: 48,
+      him: 52,
+      her: 48,
       verdict: "Too close to call. Both suspects remain under observation.",
     },
   ] satisfies CoupleFact[],
-  insideJokes: [
-    {
-      title: "That one conversation…",
-      text: "We still quote it with a straight face, and somehow it still makes sense only to us.",
-      tape: "wine",
-    },
-    {
-      title: "The legendary fight",
-      text: "Nobody remembers how it started. Everyone remembers who made the first joke afterward.",
-      tape: "gold",
-    },
-    {
-      title: "Our accidental nickname",
-      text: "It was never supposed to stick. Five years later, it still answers to us.",
-      tape: "blush",
-    },
-    {
-      title: "The joke that refuses to die",
-      text: "We've told it approximately 4,000 times. It still gets a reaction. Science cannot explain this.",
-      tape: "peach",
-    },
-  ],
   chat: [
-    { sender: "Adarsh", text: "Did you eat?" },
-    { sender: "Uma", text: "Yes." },
-    { sender: "Adarsh", text: "What did you eat?" },
-    { sender: "Uma", text: "Why?" },
-    { sender: "Adarsh", text: "Just asking…" },
+    { sender: names.him, text: "Did you eat?" },
+    { sender: names.her, text: "Yes." },
+    { sender: names.him, text: "What did you eat?" },
+    { sender: names.her, text: "Why?" },
+    { sender: names.him, text: "Just asking…" },
   ],
   loveReasons: [
     "I love the way you laugh when you stop trying to be quiet.",
@@ -161,7 +292,7 @@ export const relationship = {
     "I love that I still discover new reasons to choose you.",
   ],
   letter: [
-    "Dear Uma,",
+    `Dear ${names.her},`,
     "Five years.",
     "Honestly, I don't know how we got here so quickly.",
     "We've laughed. We've fought. We've annoyed each other. We've missed each other. We've forgiven each other. We've grown together.",
@@ -169,8 +300,8 @@ export const relationship = {
     "Being far from you has made me understand something simple: your place in my life was never measured in kilometers.",
     "Through every version of us—messy, silly, stubborn, soft—there has always been one thing I could come back to.",
     "It's still you.",
-    "Happy fifth anniversary, Uma. Thank you for staying, growing, laughing, and dreaming with me.",
-    "Love,\nAdarsh",
+    `Happy fifth anniversary, ${names.her}. Thank you for staying, growing, laughing, and dreaming with me.`,
+    `Love,\n${names.him}`,
   ],
   futureCards: [
     { title: "Future trip", note: "A window seat and nowhere to rush." },
@@ -190,7 +321,7 @@ export const relationship = {
   secretMessages: [
     "Psst…",
     "You found the secret.",
-    "Adarsh loves you more than he admits.",
+    `${names.him} loves you more than he admits.`,
     "Okay, fine… A LOT more.",
   ],
 } as const;
