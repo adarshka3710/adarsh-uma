@@ -11,7 +11,7 @@ export const names = {
   her: "Moos",
   herSurname: "Moose",
 
-  
+
 } as const;
 
 export type PersonName = (typeof names)["him"] | (typeof names)["her"];
@@ -238,11 +238,11 @@ export const relationship = {
     },
   ] satisfies TimelineYear[],
   chat: [
-    { sender: names.him, text: "Did you eat?" },
-    { sender: names.her, text: "Yes." },
-    { sender: names.him, text: "What did you eat?" },
-    { sender: names.her, text: "Why?" },
-    { sender: names.him, text: "Just asking…" },
+    { sender: names.him, text: "Gumng museeee🫂😘" },
+    { sender: names.her, text: "1005 gumng adarsheeeiii🫂😘" },
+    { sender: names.him, text: "1005😘😘" },
+    { sender: names.her, text: "ntheyaarnnuuu" },
+    { sender: names.him, text: "onnum cheyanilaa" },
   ],
   loveReasons: [
     "I love the way you laugh when you stop trying to be quiet.",
