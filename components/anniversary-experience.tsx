@@ -9,7 +9,13 @@ import {
   useState,
 } from "react";
 import { memories, type Memory } from "@/data/memories";
-import { relationship } from "@/data/relationship";
+import {
+  copy,
+  names,
+  relationship,
+  site,
+  type PersonName,
+} from "@/data/relationship";
 
 type IconName =
   | "heart"
@@ -159,15 +165,16 @@ function Intro({ onOpen }: { onOpen: () => void }) {
       <div className="intro-orbit intro-orbit--one" />
       <div className="intro-orbit intro-orbit--two" />
       <div className="intro-copy" aria-live="polite">
-        <p className="intro-line intro-line--1">Hey Uma…</p>
-        <p className="intro-line intro-line--2">I made something for you.</p>
-        <p className="intro-line intro-line--3">Something I couldn&apos;t put inside a box.</p>
-        <p className="intro-line intro-line--4">So I put it here instead.</p>
+        {copy.intro.lines.map((line, index) => (
+          <p className={`intro-line intro-line--${index + 1}`} key={line}>
+            {line}
+          </p>
+        ))}
         <div className="intro-title">
-          <span>5 Years of Us</span>
+          <span>{copy.intro.title}</span>
           <Icon name="heart" size={22} filled />
         </div>
-        <p className="intro-names">Adarsh × Uma</p>
+        <p className="intro-names">{site.coupleLabel}</p>
       </div>
       <button
         className="envelope-button"
@@ -179,10 +186,10 @@ function Intro({ onOpen }: { onOpen: () => void }) {
         <span className="envelope-mark">
           <Icon name="heart" size={18} filled />
         </span>
-        <span>Open your letter</span>
+        <span>{copy.intro.openLetter}</span>
       </button>
       <button className="intro-skip" onClick={onOpen}>
-        Skip intro
+        {copy.intro.skip}
       </button>
     </div>
   );
@@ -195,23 +202,25 @@ function Hero() {
     <section className="hero" id="top">
       <div className="hero-noise" />
       <div className="hero-frame">
-        <div className="hero-date">23 · 09 · 2026</div>
+        <div className="hero-date">{site.heroDate}</div>
         <h1>
-          <span>5 Years.</span>
-          <span>Countless Memories.</span>
-          <span className="hero-emphasis">One Love.</span>
+          {copy.hero.lines.map((line, index) => (
+            <span className={index === 2 ? "hero-emphasis" : undefined} key={line}>
+              {line}
+            </span>
+          ))}
         </h1>
         <div className="hero-couple">
-          Adarsh <Icon name="heart" size={26} filled /> Uma
+          {names.him} <Icon name="heart" size={26} filled /> {names.her}
         </div>
         <p className="hero-note">
-          Somehow, five years passed…
+          {copy.hero.note[0]}
           <br />
-          and I still choose you.
+          {copy.hero.note[1]}
         </p>
         <button className="story-button" onClick={startStory}>
           <Icon name="envelope" />
-          <span>Open our story</span>
+          <span>{copy.hero.cta}</span>
           <Icon name="arrow" />
         </button>
       </div>
@@ -225,8 +234,8 @@ function Timeline() {
   return (
     <section className="timeline-section story-section" id="our-story">
       <Reveal>
-        <SectionHeading note="Five frames. One story that kept moving.">
-          Where time learned our names.
+        <SectionHeading note={copy.timeline.note}>
+          {copy.timeline.title}
         </SectionHeading>
       </Reveal>
       <div className="timeline">
@@ -318,7 +327,8 @@ function MemoryDialog({
           <Image
             src={memory.image}
             alt={memory.title}
-            fill
+            width={1200}
+            height={1600}
             sizes="(max-width: 800px) 92vw, 50vw"
           />
         </div>
@@ -336,7 +346,7 @@ function MemoryDialog({
           {memory.emotionalMessage && <blockquote>{memory.emotionalMessage}</blockquote>}
           {memory.funnyCaption && <span className="scribble">{memory.funnyCaption}</span>}
           {memory.placeholder && (
-            <p className="replace-note">Photo coming soon.</p>
+            <p className="replace-note">{copy.gallery.photoSoon}</p>
           )}
         </div>
       </div>
@@ -349,8 +359,8 @@ function MemoryGallery() {
   return (
     <section className="gallery-section story-section" id="memories">
       <Reveal>
-        <SectionHeading note="Irreplaceable evidence.">
-          The moments I keep replaying.
+        <SectionHeading note={copy.gallery.note}>
+          {copy.gallery.title}
         </SectionHeading>
       </Reveal>
       <div className="memory-grid">
@@ -364,14 +374,15 @@ function MemoryGallery() {
               <Image
                 src={memory.image}
                 alt={memory.title}
-                fill
+                width={1200}
+                height={1600}
                 sizes="(max-width: 640px) 82vw, (max-width: 1024px) 42vw, 28vw"
               />
             </span>
             <span className="polaroid-caption">
               <strong>{memory.title}</strong>
               <small>{memory.funnyCaption}</small>
-              {memory.placeholder && <em>Photo coming soon</em>}
+              {memory.placeholder && <em>{copy.gallery.photoSoon}</em>}
             </span>
           </button>
         ))}
@@ -382,20 +393,20 @@ function MemoryGallery() {
 }
 
 function FunnyFacts() {
-  const [answers, setAnswers] = useState<Record<number, "Adarsh" | "Uma">>({});
+  const [answers, setAnswers] = useState<Record<number, PersonName>>({});
   return (
     <section className="facts-section story-section" id="facts">
       <Reveal>
-        <SectionHeading note="Five years of peer-reviewed nonsense.">
-          Apparently, love means annoying each other.
+        <SectionHeading note={copy.facts.note}>
+          {copy.facts.title}
         </SectionHeading>
       </Reveal>
       <div className="facts-list">
         {relationship.facts.map((fact, index) => {
           const guess = answers[index];
           const answered = Boolean(guess);
-          const tied = fact.adarsh === fact.uma;
-          const winner = tied ? "Tie" : fact.adarsh > fact.uma ? "Adarsh" : "Uma";
+          const tied = fact.him === fact.her;
+          const winner = tied ? "Tie" : fact.him > fact.her ? names.him : names.her;
           return (
             <article
               className={`fact-card${answered ? " fact-card--answered" : ""}`}
@@ -405,33 +416,34 @@ function FunnyFacts() {
               <h3>{fact.question}</h3>
               {!answered ? (
                 <div className="fact-choices">
-                  <button type="button" onClick={() => setAnswers((value) => ({ ...value, [index]: "Adarsh" }))}>
-                    Adarsh
+                  <button type="button" onClick={() => setAnswers((value) => ({ ...value, [index]: names.him }))}>
+                    {names.him}
                   </button>
-                  <span>or</span>
-                  <button type="button" onClick={() => setAnswers((value) => ({ ...value, [index]: "Uma" }))}>
-                    Uma
+                  <span>{copy.facts.or}</span>
+                  <button type="button" onClick={() => setAnswers((value) => ({ ...value, [index]: names.her }))}>
+                    {names.her}
                   </button>
                 </div>
               ) : (
                 <div className="fact-result" aria-live="polite">
                   <div>
-                    <span>Adarsh</span>
+                    <span>{names.him}</span>
                     <div className="fact-track" aria-hidden>
-                      <span style={{ "--pct": `${fact.adarsh}%` } as React.CSSProperties} />
+                      <span style={{ "--pct": `${fact.him}%` } as React.CSSProperties} />
                     </div>
-                    <b>{fact.adarsh}%</b>
+                    <b>{fact.him}%</b>
                   </div>
                   <div>
-                    <span>Uma</span>
+                    <span>{names.her}</span>
                     <div className="fact-track" aria-hidden>
-                      <span style={{ "--pct": `${fact.uma}%` } as React.CSSProperties} />
+                      <span style={{ "--pct": `${fact.her}%` } as React.CSSProperties} />
                     </div>
-                    <b>{fact.uma}%</b>
+                    <b>{fact.her}%</b>
                   </div>
                   <p>
-                    Your guess: <strong>{guess}</strong>. Official result: <strong>{winner}</strong>
-                    {guess === winner ? " — you knew." : tied ? "." : " — the evidence disagrees."}
+                    {copy.facts.guessPrefix} <strong>{guess}</strong>. {copy.facts.resultPrefix}{" "}
+                    <strong>{winner}</strong>
+                    {guess === winner ? copy.facts.knew : tied ? "." : copy.facts.disagree}
                     <br />
                     {fact.verdict}
                   </p>
@@ -445,61 +457,51 @@ function FunnyFacts() {
   );
 }
 
-function InsideJokes() {
-  return (
-    <section className="jokes-section story-section">
-      <Reveal>
-        <SectionHeading note="If anyone else reads these, we deny everything.">
-          Things only we understand.
-        </SectionHeading>
-      </Reveal>
-      <div className="joke-board">
-        {relationship.insideJokes.map((joke, index) => (
-          <article className={`sticky-note sticky-note--${index + 1} reveal`} key={joke.title}>
-            <span className={`tape tape--${joke.tape}`} />
-            <h3>{joke.title}</h3>
-            <p>{joke.text}</p>
-            <span className="note-index">A+U / {index + 1}</span>
-          </article>
-        ))}
-      </div>
-    </section>
-  );
-}
-
 function DistanceSection({ onMissYou }: { onMissYou: () => void }) {
   return (
     <section className="distance-section story-section" id="distance">
       <div className="distance-stars" aria-hidden />
       <Reveal>
-        <SectionHeading light note="Not a goodbye. Just a long way to the next hello.">
-          Different places.<br />Same heart.
+        <SectionHeading light note={copy.distance.note}>
+          {copy.distance.titleLines[0]}
+          <br />
+          {copy.distance.titleLines[1]}
         </SectionHeading>
       </Reveal>
       <div className="distance-map reveal">
-        <div className="place place--left"><Icon name="pin" /><span>Adarsh</span><small>{relationship.distance.adarshPlace}</small></div>
+        <div className="place place--left">
+          <Icon name="pin" />
+          <span>{names.him}</span>
+          <small>{relationship.distance.himPlace}</small>
+        </div>
         <div className="connection">
           <i />
           <span>{relationship.distance.kilometers.toLocaleString()} km</span>
         </div>
-        <div className="place place--right"><Icon name="pin" /><span>Uma</span><small>{relationship.distance.umaPlace}</small></div>
+        <div className="place place--right">
+          <Icon name="pin" />
+          <span>{names.her}</span>
+          <small>{relationship.distance.herPlace}</small>
+        </div>
       </div>
       <div className="distance-copy reveal">
-        <p>Being far away from you isn&apos;t easy.</p>
+        <p>{copy.distance.lead}</p>
         <ul>
-          <li>We miss birthdays.</li>
-          <li>We miss random hugs.</li>
-          <li>We miss sitting next to each other.</li>
-          <li>We miss doing absolutely nothing together.</li>
+          {copy.distance.misses.map((item) => (
+            <li key={item}>{item}</li>
+          ))}
         </ul>
-        <blockquote>But we still find ways to be part of each other&apos;s ordinary days.</blockquote>
+        <blockquote>{copy.distance.quote}</blockquote>
       </div>
       <div className="chat-window reveal">
-        <div className="chat-top"><span>Uma</span><small>one call away</small></div>
+        <div className="chat-top">
+          <span>{names.her}</span>
+          <small>{copy.distance.chatStatus}</small>
+        </div>
         <div className="chat-body">
           {relationship.chat.map((message, index) => (
             <div
-              className={`chat-message ${message.sender === "Adarsh" ? "chat-message--sent" : "chat-message--received"}`}
+              className={`chat-message ${message.sender === names.him ? "chat-message--sent" : "chat-message--received"}`}
               style={{ "--chat-delay": `${index * 450}ms` } as React.CSSProperties}
               key={`${message.sender}-${message.text}`}
             >
@@ -507,13 +509,18 @@ function DistanceSection({ onMissYou }: { onMissYou: () => void }) {
               <p>{message.text}</p>
             </div>
           ))}
-          <div className="typing"><i /><i /><i /><span>Uma is typing…</span></div>
-          <p className="chat-punchline">Five years later… still asking.</p>
+          <div className="typing">
+            <i />
+            <i />
+            <i />
+            <span>{copy.distance.typing}</span>
+          </div>
+          <p className="chat-punchline">{copy.distance.punchline}</p>
         </div>
       </div>
       <button className="miss-you-button" onClick={onMissYou}>
         <Icon name="heart" filled />
-        Miss you
+        {copy.distance.missYouButton}
       </button>
     </section>
   );
@@ -523,8 +530,8 @@ function LoveReasons() {
   return (
     <section className="love-section story-section">
       <Reveal>
-        <SectionHeading note="A very incomplete list, in no particular order.">
-          Five years later, here&apos;s what I still love.
+        <SectionHeading note={copy.love.note}>
+          {copy.love.title}
         </SectionHeading>
       </Reveal>
       <div className="love-list">
@@ -562,13 +569,13 @@ function LoveLetter() {
     <section className="letter-section story-section" ref={sectionRef}>
       <div className="letter-glow" />
       <Reveal>
-        <SectionHeading light>Uma, this one is for you.</SectionHeading>
+        <SectionHeading light>{copy.letter.title}</SectionHeading>
       </Reveal>
       <div className="letter-paper reveal">
-        <span className="letter-date">23 September</span>
+        <span className="letter-date">{site.displayDate}</span>
         <p className="typed-letter">{fullText.slice(0, visible)}{!complete && <i className="caret" />}</p>
         {!complete && (
-          <button onClick={() => setVisible(fullText.length)}>Read it all now</button>
+          <button onClick={() => setVisible(fullText.length)}>{copy.letter.readAll}</button>
         )}
       </div>
     </section>
@@ -603,31 +610,58 @@ function NumbersAndMovie() {
   return (
     <>
       <section className="numbers-section story-section">
-        <Reveal><SectionHeading note="The only math I have ever enjoyed.">Our five years in numbers.</SectionHeading></Reveal>
+        <Reveal>
+          <SectionHeading note={copy.numbers.note}>{copy.numbers.title}</SectionHeading>
+        </Reveal>
         <div className="number-grid">
-          <div><Counter value={5} /><p>years together</p></div>
-          <div><Counter value={60} /><p>months of us</p></div>
-          <div><Counter value={1826} suffix="+" /><p>days, give or take a leap year</p></div>
-          <div><span className="infinity">∞</span><p>memories</p></div>
-          <div><span>too many</span><p>arguments</p></div>
-          <div><span>countless</span><p>“I miss you”s</p></div>
+          {copy.numbers.items.map((item) =>
+            item.kind === "count" ? (
+              <div key={item.label}>
+                <Counter value={item.value} suffix={item.suffix} />
+                <p>{item.label}</p>
+              </div>
+            ) : (
+              <div key={item.label}>
+                <span className={item.value === "∞" ? "infinity" : undefined}>{item.value}</span>
+                <p>{item.label}</p>
+              </div>
+            ),
+          )}
         </div>
-        <p className="still-counting">Still counting.</p>
+        <p className="still-counting">{copy.numbers.stillCounting}</p>
       </section>
       <section className="movie-section story-section" id="movie">
         <div className="movie-grain" />
         <div className="movie-poster reveal">
-          <h2>The Story<br />of Us</h2>
-          <div className="movie-cast"><span>Adarsh</span><i>&</i><span>Uma</span></div>
-          <p className="movie-genres">Romance · Comedy · Drama · Chaos</p>
+          <h2>
+            {copy.movie.titleLines[0]}
+            <br />
+            {copy.movie.titleLines[1]}
+          </h2>
+          <div className="movie-cast">
+            <span>{names.him}</span>
+            <i>&</i>
+            <span>{names.her}</span>
+          </div>
+          <p className="movie-genres">{copy.movie.genres}</p>
           <div className="movie-roles">
-            <p><strong>Adarsh</strong><br />Professional Annoyer</p>
-            <p><strong>Uma</strong><br />Professional Heart Stealer</p>
+            <p>
+              <strong>{names.him}</strong>
+              <br />
+              {copy.movie.himRole}
+            </p>
+            <p>
+              <strong>{names.her}</strong>
+              <br />
+              {copy.movie.herRole}
+            </p>
           </div>
           <div className="movie-rating" aria-label="Five stars">
-            {Array.from({ length: 5 }, (_, index) => <Icon name="star" filled key={index} />)}
+            {Array.from({ length: 5 }, (_, index) => (
+              <Icon name="star" filled key={index} />
+            ))}
           </div>
-          <p className="movie-runtime">Runtime: 5 years… and still ongoing.</p>
+          <p className="movie-runtime">{copy.movie.runtime}</p>
         </div>
       </section>
     </>
@@ -653,19 +687,24 @@ function FutureIcon({ index }: { index: number }) {
 function FutureSection() {
   return (
     <section className="future-section story-section" id="future">
-      <Reveal><SectionHeading note="The best part is how much we haven't seen yet.">To be continued…</SectionHeading></Reveal>
+      <Reveal>
+        <SectionHeading note={copy.future.note}>{copy.future.title}</SectionHeading>
+      </Reveal>
       <div className="future-track">
         {relationship.futureCards.map((card, index) => (
           <article className="future-card reveal" key={card.title}>
-            <span className="future-symbol"><FutureIcon index={index} /></span>
+            <span className="future-symbol">
+              <FutureIcon index={index} />
+            </span>
             <h3>{card.title}</h3>
             <p>{card.note}</p>
           </article>
         ))}
       </div>
       <p className="future-promise">
-        We already have five years of memories.<br />
-        Let&apos;s make the next five even better.
+        {copy.future.promise[0]}
+        <br />
+        {copy.future.promise[1]}
       </p>
     </section>
   );
@@ -676,37 +715,43 @@ function Finale({ onHeart }: { onHeart: () => void }) {
     <section className="finale story-section">
       <div className="finale-film" aria-hidden>
         {memories.slice(0, 5).map((memory) => (
-          <Image key={memory.id} src={memory.image} alt="" width={180} height={220} />
+          <Image
+            key={memory.id}
+            src={memory.image}
+            alt=""
+            width={180}
+            height={220}
+            style={{ objectFit: "cover" }}
+          />
         ))}
       </div>
       <div className="finale-copy reveal">
-        <p>5 years…</p>
-        <p>60 months…</p>
-        <p>countless calls…</p>
-        <p>too many fights…</p>
-        <p>way too many laughs…</p>
-        <p>and one person…</p>
-        <strong>you.</strong>
+        {copy.finale.countdown.map((line) => (
+          <p key={line}>{line}</p>
+        ))}
+        <strong>{copy.finale.you}</strong>
       </div>
       <div className="finale-message reveal">
-        <p>Hey Uma…</p>
-        <h2>Happy 5th Anniversary.</h2>
-        <span>23 September</span>
+        <p>{copy.finale.greeting}</p>
+        <h2>{copy.finale.headline}</h2>
+        <span>{site.displayDate}</span>
         <p>
-          I couldn&apos;t wrap this. I couldn&apos;t put it in a box.
-          <br />So I put five years of us into this.
+          {copy.finale.body[0]}
+          <br />
+          {copy.finale.body[1]}
         </p>
-        <blockquote>
-          Thank you for being my favorite person, my favorite problem,
-          my favorite notification, and my favorite part of every day.
-        </blockquote>
-        <p>Here&apos;s to everything we&apos;ve been, everything we are, and everything we&apos;re going to become.</p>
-        <h3>5 years down.<br />Forever to go.</h3>
-        <span className="signature">— Adarsh</span>
+        <blockquote>{copy.finale.quote}</blockquote>
+        <p>{copy.finale.toast}</p>
+        <h3>
+          {copy.finale.closingLines[0]}
+          <br />
+          {copy.finale.closingLines[1]}
+        </h3>
+        <span className="signature">{copy.finale.signature}</span>
       </div>
       <button className="final-heart" onClick={onHeart} aria-label="Reveal the final message">
         <Icon name="heart" size={80} filled />
-        <span>One last thing</span>
+        <span>{copy.finale.oneLastThing}</span>
       </button>
     </section>
   );
@@ -754,13 +799,18 @@ function MusicControl() {
         onEnded={() => setPlaying(false)}
         onError={() => setError(true)}
       />
-      <button onClick={toggle} aria-label={playing ? "Pause our song" : "Play our song"}>
+      <button onClick={toggle} aria-label={playing ? copy.music.pause : copy.music.play}>
         <span className="music-icon"><Icon name={playing ? "pause" : "music"} /></span>
-        <span><strong>{relationship.audio.title}</strong><small>{error ? "Add /public/audio/our-song.mp3" : playing ? "Playing softly…" : "Play our song"}</small></span>
+        <span>
+          <strong>{relationship.audio.title}</strong>
+          <small>
+            {error ? copy.music.missing : playing ? copy.music.playing : copy.music.play}
+          </small>
+        </span>
         {playing && <i className="sound-wave"><b /><b /><b /></i>}
       </button>
       <div className="volume-tools">
-        <button onClick={() => setMuted((value) => !value)} aria-label={muted ? "Unmute music" : "Mute music"}>
+        <button onClick={() => setMuted((value) => !value)} aria-label={muted ? copy.music.unmute : copy.music.mute}>
           <Icon name={muted ? "mute" : "volume"} size={17} />
         </button>
         <input
@@ -803,8 +853,8 @@ function SurpriseOverlay({
       ) : (
         <div>
           <Icon name="heart" size={110} filled />
-          <p>Still choosing you.</p>
-          <strong>Every single time.</strong>
+          <p>{copy.surprise.finalLine}</p>
+          <strong>{copy.surprise.finalStrong}</strong>
         </div>
       )}
     </div>
@@ -865,7 +915,6 @@ export default function AnniversaryExperience() {
       <Timeline />
       <MemoryGallery />
       <FunnyFacts />
-      <InsideJokes />
       <DistanceSection onMissYou={missYou} />
       <LoveReasons />
       <LoveLetter />
@@ -873,8 +922,12 @@ export default function AnniversaryExperience() {
       <FutureSection />
       <Finale onHeart={() => setSurprise("final")} />
       <div className="floating-actions">
-        <button onClick={oneMoreMemory}><Icon name="spark" /> One more memory</button>
-        <button className="secret-trigger" onClick={() => setSurprise("secret")} aria-label="A tiny secret"><Icon name="heart" size={13} filled /></button>
+        <button onClick={oneMoreMemory}>
+          <Icon name="spark" /> {copy.actions.oneMoreMemory}
+        </button>
+        <button className="secret-trigger" onClick={() => setSurprise("secret")} aria-label={copy.actions.secret}>
+          <Icon name="heart" size={13} filled />
+        </button>
       </div>
       <MusicControl />
       <Toast message={toast} />

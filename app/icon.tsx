@@ -1,4 +1,5 @@
 import { ImageResponse } from "next/og";
+import { site } from "@/data/relationship";
 
 export const size = { width: 64, height: 64 };
 export const contentType = "image/png";
@@ -19,7 +20,7 @@ export default function Icon() {
           fontSize: 30,
         }}
       >
-        A×U
+        {site.iconInitials}
       </div>
     ),
     size,

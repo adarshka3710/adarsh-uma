@@ -526,18 +526,26 @@ input:focus-visible {
 
 .timeline-photo {
   position: relative;
-  max-width: 23rem;
+  width: fit-content;
+  max-width: min(23rem, 100%);
   padding: 0.65rem 0.65rem 2.8rem;
+  overflow: hidden;
   background: var(--paper);
   box-shadow: 0 22px 45px rgba(53, 20, 31, 0.18);
 }
 
 .timeline-photo img {
-  width: 100%;
+  display: block;
+  width: auto;
   height: auto;
-  aspect-ratio: 4 / 5;
-  object-fit: cover;
+  max-width: 100%;
+  max-height: min(70dvh, 36rem);
+  margin-inline: auto;
+  object-fit: contain;
+  object-position: center;
 }
+
+
 
 .timeline-photo > span {
   position: absolute;
@@ -674,15 +682,20 @@ input:focus-visible {
 .polaroid-image {
   position: relative;
   display: block;
-  aspect-ratio: 4 / 5;
   overflow: hidden;
-  background: var(--wine-700);
+  background: transparent;
 }
 
 .polaroid-image img {
-  object-fit: cover;
+  position: static;
+  display: block;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  object-fit: contain;
+  object-position: center;
   filter: blur(8px) saturate(0.7);
-  transform: scale(1.045);
+  transform: none;
   transition: filter 1s ease, transform 1.2s var(--ease-cinema);
 }
 
@@ -748,11 +761,23 @@ input:focus-visible {
 
 .dialog-image {
   position: relative;
-  min-height: min(56dvh, 34rem);
-  background: var(--wine-700);
+  display: grid;
+  place-items: center;
+  min-height: 0;
+  overflow: hidden;
+  background: #2a1219;
 }
 
-.dialog-image img { object-fit: cover; }
+.dialog-image img {
+  position: static;
+  display: block;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: min(72dvh, 40rem);
+  object-fit: contain;
+  object-position: center;
+}
 
 .dialog-copy { padding: clamp(1.5rem, 5vw, 4rem); }
 
@@ -1796,7 +1821,7 @@ input:focus-visible {
   .number-grid { grid-template-columns: repeat(3, 1fr); }
   .future-track { grid-template-columns: repeat(2, 1fr); }
   .memory-dialog { grid-template-columns: 1fr 1fr; }
-  .dialog-image { min-height: 42rem; }
+  .dialog-image { min-height: 0; max-height: min(80dvh, 44rem); }
 }
 
 @media (min-width: 1024px) {
@@ -1940,7 +1965,7 @@ body,
 
   .timeline-photo {
     grid-column: 2;
-    width: 100%;
+    width: fit-content;
     max-width: 100%;
     transform: none !important;
   }
