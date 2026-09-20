@@ -14,7 +14,6 @@ import {
   names,
   relationship,
   site,
-  type PersonName,
 } from "@/data/relationship";
 
 type IconName =
@@ -376,7 +375,11 @@ function MemoryGallery() {
                 alt={memory.title}
                 width={1200}
                 height={1600}
-                sizes="(max-width: 640px) 82vw, (max-width: 1024px) 42vw, 28vw"
+                sizes={
+                  index % 3 === 0
+                    ? "(max-width: 900px) 92vw, (max-width: 1024px) 42vw, 28vw"
+                    : "(max-width: 900px) 48vw, (max-width: 1024px) 42vw, 28vw"
+                }
               />
             </span>
             <span className="polaroid-caption">
@@ -388,71 +391,6 @@ function MemoryGallery() {
         ))}
       </div>
       {selected && <MemoryDialog memory={selected} onClose={() => setSelected(null)} />}
-    </section>
-  );
-}
-
-function FunnyFacts() {
-  const [answers, setAnswers] = useState<Record<number, PersonName>>({});
-  return (
-    <section className="facts-section story-section" id="facts">
-      <Reveal>
-        <SectionHeading note={copy.facts.note}>
-          {copy.facts.title}
-        </SectionHeading>
-      </Reveal>
-      <div className="facts-list">
-        {relationship.facts.map((fact, index) => {
-          const guess = answers[index];
-          const answered = Boolean(guess);
-          const tied = fact.him === fact.her;
-          const winner = tied ? "Tie" : fact.him > fact.her ? names.him : names.her;
-          return (
-            <article
-              className={`fact-card${answered ? " fact-card--answered" : ""}`}
-              key={fact.question}
-            >
-              <p className="fact-count">Case {String(index + 1).padStart(2, "0")}</p>
-              <h3>{fact.question}</h3>
-              {!answered ? (
-                <div className="fact-choices">
-                  <button type="button" onClick={() => setAnswers((value) => ({ ...value, [index]: names.him }))}>
-                    {names.him}
-                  </button>
-                  <span>{copy.facts.or}</span>
-                  <button type="button" onClick={() => setAnswers((value) => ({ ...value, [index]: names.her }))}>
-                    {names.her}
-                  </button>
-                </div>
-              ) : (
-                <div className="fact-result" aria-live="polite">
-                  <div>
-                    <span>{names.him}</span>
-                    <div className="fact-track" aria-hidden>
-                      <span style={{ "--pct": `${fact.him}%` } as React.CSSProperties} />
-                    </div>
-                    <b>{fact.him}%</b>
-                  </div>
-                  <div>
-                    <span>{names.her}</span>
-                    <div className="fact-track" aria-hidden>
-                      <span style={{ "--pct": `${fact.her}%` } as React.CSSProperties} />
-                    </div>
-                    <b>{fact.her}%</b>
-                  </div>
-                  <p>
-                    {copy.facts.guessPrefix} <strong>{guess}</strong>. {copy.facts.resultPrefix}{" "}
-                    <strong>{winner}</strong>
-                    {guess === winner ? copy.facts.knew : tied ? "." : copy.facts.disagree}
-                    <br />
-                    {fact.verdict}
-                  </p>
-                </div>
-              )}
-            </article>
-          );
-        })}
-      </div>
     </section>
   );
 }
@@ -914,7 +852,6 @@ export default function AnniversaryExperience() {
       <Hero />
       <Timeline />
       <MemoryGallery />
-      <FunnyFacts />
       <DistanceSection onMissYou={missYou} />
       <LoveReasons />
       <LoveLetter />

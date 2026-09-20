@@ -57,15 +57,6 @@ export const copy = {
     note: "Irreplaceable evidence.",
     photoSoon: "Photo coming soon.",
   },
-  facts: {
-    title: "Apparently, love means annoying each other.",
-    note: "Five years of peer-reviewed nonsense.",
-    or: "or",
-    knew: " — you knew.",
-    disagree: " — the evidence disagrees.",
-    guessPrefix: "Your guess:",
-    resultPrefix: "Official result:",
-  },
   distance: {
     titleLines: ["Different places.", "Same heart."],
     note: "Not a goodbye. Just a long way to the next hug.",
@@ -169,13 +160,6 @@ export type TimelineYear = {
   image: string;
 };
 
-export type CoupleFact = {
-  question: string;
-  him: number;
-  her: number;
-  verdict: string;
-};
-
 export const relationship = {
   names: {
     boyfriend: names.him,
@@ -252,26 +236,6 @@ export const relationship = {
       image: "/memories/19_1.jpg",
     },
   ] satisfies TimelineYear[],
-  facts: [
-    {
-      question: "Who apologizes first?",
-      him: 68,
-      her: 32,
-      verdict: `${names.him}, because peace is a beautiful thing.`,
-    },
-    {
-      question: 'Who says "I\'m fine" while clearly not fine?',
-      him: 21,
-      her: 79,
-      verdict: "The data was collected during a very brave interview.",
-    },
-    {
-      question: "Who is secretly more obsessed?",
-      him: 52,
-      her: 48,
-      verdict: "Too close to call. Both suspects remain under observation.",
-    },
-  ] satisfies CoupleFact[],
   chat: [
     { sender: names.him, text: "Did you eat?" },
     { sender: names.her, text: "Yes." },
