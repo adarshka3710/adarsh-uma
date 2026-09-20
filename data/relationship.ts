@@ -8,7 +8,9 @@
 /** Change these two names and the whole site updates. */
 export const names = {
   him: "Adarsh",
-  her: "Moose",
+  her: "Moos",
+  herSurname: "Moose",
+
 } as const;
 
 export type PersonName = (typeof names)["him"] | (typeof names)["her"];
@@ -32,7 +34,7 @@ export const site = {
 export const copy = {
   intro: {
     lines: [
-      `Hey ${names.her}…`,
+      `${names.herSurname}…`,
       "I made something for you.",
       "Something I couldn't put inside a box.",
       "So I put it here instead.",
@@ -292,7 +294,7 @@ export const relationship = {
     "I love that I still discover new reasons to choose you.",
   ],
   letter: [
-    `Dear ${names.her},`,
+    `${names.herSurname},`,
     "Five years.",
     "Honestly, I don't know how we got here so quickly.",
     "We've laughed. We've fought. We've annoyed each other. We've missed each other. We've forgiven each other. We've grown together.",
