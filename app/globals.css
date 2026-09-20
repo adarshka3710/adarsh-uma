@@ -539,6 +539,8 @@ input:focus-visible {
   object-fit: cover;
 }
 
+
+
 .timeline-photo > span {
   position: absolute;
   bottom: 0.8rem;
