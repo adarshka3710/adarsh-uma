@@ -834,7 +834,7 @@ input:focus-visible {
   font-size: 0.875rem;
 }
 
-/* Jokes */
+.jokes-section {
   overflow: hidden;
   background:
     radial-gradient(circle at 10% 10%, rgba(215, 173, 105, 0.18), transparent 20%),
